@@ -1,3 +1,6 @@
+#ifdef _WIN32
+#include <windows.h>
+#endif
 #include <iostream>
 #include <vector>
 #include <string>
@@ -47,41 +50,31 @@ void SimpleApp::render()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glLoadIdentity();
 
-	gluLookAt(0.0, 1.0, 6.0,
+	gluLookAt(0.0, 1.0, 6.0, 
               0.0, 0.0, 0.0,
               0.0, 1.0, 0.0);
 
     glBegin(GL_TRIANGLES);
         //Send the vertices and colors for the triangle
-        glColor4f(0.0, 0.0, 1.0, 1.0);
+        glColor4f(1.0, 0.0, 0.0, 1.0);
         glVertex3f(2.0, 2.5, -1.0);
-        glColor4f(0.0, 0.0, 1.0, 1.0);
+        glColor4f(0.0, 1.0, 0.0, 1.0);
         glVertex3f(-3.5, -2.5, -1.0);
         glColor4f(0.0, 0.0, 1.0, 1.0);
         glVertex3f(2.0, -4.0, -1.0);
     glEnd();
 
-    glBegin(GL_TRIANGLES);
-        //Send the vertices and colors for the triangle
-        glColor4f(0.0, 1.0, 0.0, 1.0);
-        glVertex3f(2.1, 1.5, -1.0);
-        glColor4f(0.0, 1.0, 0.0, 1.0);
-        glVertex3f(-1.5, -2.5, -1.0);
-        glColor4f(0.0, 1.0, 0.0, 1.0);
-        glVertex3f(2.3, -4.3, -1.0);
-    glEnd();
-
     glBegin(GL_TRIANGLE_FAN);
         //Send the vertices and colors for the pentagon
-        glColor4f(1.0, 0.0, 0.0, 1.0);
+        glColor4f(1.0, 1.0, 1.0, 1.0);
         glVertex3f(-1.0, 2.0, 0.0);
-        glColor4f(1.0, 0.0, 0.0, 1.0);
+        glColor4f(1.0, 1.0, 0.0, 1.0);
         glVertex3f(-3.0, -0.5, 0.0);
-        glColor4f(1.0, 0.0, 0.0, 1.0);
+        glColor4f(0.0, 1.0, 1.0, 1.0);
         glVertex3f(-1.5, -3.0, 0.0);
-        glColor4f(1.0, 0.0, 0.0, 1.0);
+        glColor4f(0.0, 0.0, 0.0, 1.0);
         glVertex3f(1.0, -2.0, 0.0);
-        glColor4f(1.0, 0.0, 0.0, 1.0);
+        glColor4f(1.0, 0.0, 1.0, 1.0);
         glVertex3f(1.0, 1.0, 0.0);
     glEnd();
 }
@@ -170,6 +163,6 @@ int main(int argc, char** argv)
     }
 
     SDL_Quit();
-
+	
     return 0;
 }
